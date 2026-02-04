@@ -1,0 +1,93 @@
+{
+  "name": "Player",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "\u73a9\u5bb6\u540d\u7a31"
+    },
+    "age": {
+      "type": "number",
+      "description": "\u5e74\u9f61 12-18"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "robot"
+      ],
+      "description": "\u6027\u5225/\u89d2\u8272"
+    },
+    "current_position": {
+      "type": "number",
+      "description": "\u68cb\u76e4\u4f4d\u7f6e"
+    },
+    "current_path": {
+      "type": "string",
+      "enum": [
+        "stable",
+        "creative",
+        "business",
+        "tech"
+      ],
+      "description": "\u7576\u524d\u8def\u5f91"
+    },
+    "money": {
+      "type": "number",
+      "description": "\u91d1\u9322\u6307\u6a19 0-100"
+    },
+    "stress": {
+      "type": "number",
+      "description": "\u58d3\u529b\u6307\u6a19 0-100"
+    },
+    "happiness": {
+      "type": "number",
+      "description": "\u5feb\u6a02\u6307\u6a19 0-100"
+    },
+    "stable_score": {
+      "type": "number",
+      "description": "\u7a69\u5b9a\u50be\u5411\u5206\u6578"
+    },
+    "risk_score": {
+      "type": "number",
+      "description": "\u5192\u96aa\u50be\u5411\u5206\u6578"
+    },
+    "creative_score": {
+      "type": "number",
+      "description": "\u5275\u610f\u50be\u5411\u5206\u6578"
+    },
+    "choices_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event_id": {
+            "type": "string"
+          },
+          "choice": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "completed_tasks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "game_completed": {
+      "type": "boolean"
+    },
+    "final_career": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
