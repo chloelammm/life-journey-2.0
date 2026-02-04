@@ -1,18 +1,29 @@
 {
+<<<<<<< HEAD
   "name": "life-journey",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://chloelammm.github.io/life-journey/",
+=======
+  "name": "base44-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+>>>>>>> 322079237411ef966ab008bd1fc49ac4e2c0c3e6
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --quiet",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc -p ./jsconfig.json",
+<<<<<<< HEAD
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
+=======
+    "preview": "vite preview"
+>>>>>>> 322079237411ef966ab008bd1fc49ac4e2c0c3e6
   },
   "dependencies": {
     "@base44/sdk": "^0.8.3",
