@@ -1,0 +1,33 @@
+{
+  "name": "GameSession",
+  "type": "object",
+  "properties": {
+    "session_code": {
+      "type": "string",
+      "description": "\u8ab2\u5802\u4ee3\u78bc"
+    },
+    "teacher_name": {
+      "type": "string"
+    },
+    "class_name": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "triggered_events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u8001\u5e2b\u89f8\u767c\u7684\u7279\u6b8a\u4e8b\u4ef6"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "session_code"
+  ]
+}
