@@ -18,9 +18,9 @@ export default function LargeGameBoard({
     const tiles = [];
     const COLS = 10; // 每行10格
     const TOTAL_TILES = 100; // 總共100格
-    const gridSpacing = 9.5; // 格子間距（%）
+    const gridSpacing = 10; // 格子間距（%）
     const leftMargin = 3; // 左邊距
-    const rowHeight = 5; // 行高（%）
+    const rowHeight = 9.5; // 行高（%）
     
     // 事件格子列表（特定位置觸發事件）
     const eventPositions = [4, 8, 13, 19, 25, 31, 37, 43, 49, 55, 61, 67, 73, 79, 85, 91, 96];
@@ -271,7 +271,7 @@ export default function LargeGameBoard({
           initial={false}
           animate={{ 
             left: `${currentTile.x}%`, 
-            top: `${currentTile.y - 5}%` 
+            top: `${currentTile.y -2.5}%` 
           }}
           transition={{ 
             type: "spring", 
@@ -286,7 +286,7 @@ export default function LargeGameBoard({
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
           >
-            <div className="w-16 h-16 rounded-full bg-gradient-to-b from-white to-blue-50 
+            <div className="w-12 h-12 rounded-full bg-gradient-to-b from-white to-blue-50 
               shadow-2xl flex items-center justify-center
               ring-4 ring-blue-400 border-4 border-white">
               <span className="text-4xl">{PLAYER_AVATARS[playerGender] || '👦'}</span>

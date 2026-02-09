@@ -450,7 +450,7 @@ export default function Game() {
         </div>
         
         {/* 中間：超大棋盤（可滾動） */}
-        <div className="flex-1 bg-white/50 rounded-3xl p-4 shadow-lg overflow-y-auto max-h-[calc(100vh-6rem)]">
+        <div className="flex-1 bg-white/50 rounded-3xl p-4 shadow-lg overflow-y-auto max-h-[85vh]">
           <LargeGameBoard
             playerPosition={player.position}
             playerGender={player.gender}
