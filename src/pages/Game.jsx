@@ -419,6 +419,11 @@ export default function Game() {
       <div className="flex gap-4 p-4 max-w-[1600px] mx-auto">
         {/* 左側：控制面板 */}
         <div className="w-80 flex-shrink-0 space-y-4">
+          {/* 骰子 */}
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg flex justify-center">
+            <Dice onRoll={handleRoll} disabled={!canRoll} />
+          </div>
+          
           {/* 儀表板 */}
           <Dashboard
             money={player.money}
@@ -433,11 +438,6 @@ export default function Game() {
               risk={player.riskScore}
               creative={player.creativeScore}
             />
-          </div>
-          
-          {/* 骰子 */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg flex justify-center">
-            <Dice onRoll={handleRoll} disabled={!canRoll} />
           </div>
           
           {/* 活動記錄板 */}
