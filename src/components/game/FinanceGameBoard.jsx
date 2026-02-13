@@ -49,7 +49,8 @@ export default function FinanceGameBoard({
         name: '',
         icon: '',
         x: leftMargin + actualCol * gridSpacing,
-        y: 96 - row * rowHeight,
+        y: 4 + (row * rowHeight), // Starts at the top and goes DOWN
+        //y: 96 - row * rowHeight,
         size: 'normal',
         path: pos <= 25 ? null : undefined
       };
@@ -110,7 +111,7 @@ export default function FinanceGameBoard({
       </div>
 
       {/* 標題 */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-30">
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-30">
         <h2 className="text-2xl font-bold text-emerald-800 bg-white/80 px-6 py-2 rounded-full shadow-lg">
           💰 理財人生路 💰
         </h2>
@@ -190,7 +191,7 @@ export default function FinanceGameBoard({
               
               {!isBlank && (
                 <div className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-emerald-800 text-white rounded-full flex items-center justify-center text-[8px] font-bold shadow-md">
-                  {tile.position}
+                  {tile.position }
                 </div>
               )}
               

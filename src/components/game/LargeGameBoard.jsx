@@ -11,28 +11,36 @@ const PLAYER_AVATARS = {
 export default function LargeGameBoard({ 
   playerPosition, 
   playerGender, 
-  currentPath
+  currentPath,
+  ageGroup
 }) {
   // Jumanji風格Zigzag棋盤 - 100格
   const generateJumanjiBoard = () => {
     const tiles = [];
     const COLS = 10; // 每行10格
-    const TOTAL_TILES = 100; // 總共100格
+    const TOTAL_TILES = ageGroup === 'primary' ? 50 : 100;
+    //const TOTAL_TILES = 100; // 總共100格
     const gridSpacing = 10; // 格子間距（%）
     const leftMargin = 3; // 左邊距
     const rowHeight = 9.5; // 行高（%）
     
     // 事件格子列表（特定位置觸發事件）
-    const eventPositions = [4, 8, 13, 19, 25, 31, 37, 43, 49, 55, 61, 67, 73, 79, 85, 91, 96];
-    const milestonePositions = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    const endPos = TOTAL_TILES - 1;
+    const eventPositions = ageGroup === 'primary' 
+      ? [4, 8, 13, 19, 25, 31, 37, 43]
+      : [4, 8, 13, 19, 25, 31, 37, 43, 49, 55, 61, 67, 73, 79, 85, 91, 96];
     
-    // 特殊格子定義
+    const milestonePositions = ageGroup === 'primary'
+      ? [10, 20, 30, 40]
+      : [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    
+      // 特殊格子定義
     const specialTiles = {
       0: { name: '起點', icon: '🏛️', type: 'start', size: 'large' },
       6: { name: '小學', icon: '📚', type: 'milestone' },
       15: { name: '中學', icon: '🎒', type: 'milestone' },
       25: { name: '分岔路', icon: '🔀', type: 'junction', size: 'large' },
-      99: { name: '退休', icon: '🏝️', type: 'end', size: 'large' }
+      [endPos]: { name: '退休', icon: '🏝️', type: 'end', size: 'large' }
     };
     
     for (let pos = 0; pos < TOTAL_TILES; pos++) {
@@ -48,7 +56,8 @@ export default function LargeGameBoard({
         name: '',
         icon: '',
         x: leftMargin + actualCol * gridSpacing,
-        y: 96 - row * rowHeight,
+        y: 4 + (row * rowHeight), // Starts at the top and goes DOWN
+        //y: 96 - row * rowHeight,
         size: 'normal',
         path: pos <= 25 ? null : undefined // 前25格共同路徑
       };
@@ -130,7 +139,7 @@ export default function LargeGameBoard({
         <span className="absolute top-[85%] right-[15%] text-3xl opacity-20">🌆</span>
       </div>
       
-      {/* 路徑標籤 */}
+      {/* 路徑標籤
       <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
         {Object.entries(BOARD_PATHS.paths).map(([key, path]) => (
           <span 
@@ -141,7 +150,7 @@ export default function LargeGameBoard({
             {path.icon} {path.name}
           </span>
         ))}
-      </div>
+      </div> */}
       
       {/* 路徑連線 */}
       <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>

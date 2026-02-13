@@ -614,6 +614,8 @@ export default function Game() {
         <div className="flex-1 bg-white/50 rounded-3xl p-4 shadow-lg overflow-y-auto max-h-[calc(100vh-6rem)]">
           {gameMode === 'career' && (
             <LargeGameBoard
+              key={`career-${ageGroup}`}
+              ageGroup={ageGroup}
               playerPosition={player.position}
               playerGender={player.gender}
               currentPath={player.path}
